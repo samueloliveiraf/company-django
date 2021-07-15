@@ -1,0 +1,41 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/style-register.css' %}">
+
+        <title>Cadastrar de Usuários</title>
+
+    </head>
+    <body>
+    
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <p>
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+            {% endfor %}
+
+            <button class="btn btn-dark" type="submit">Cadastrar</button>
+        </form>
+
+    </body>
+</html>

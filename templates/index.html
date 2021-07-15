@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h2> Empresa </h2>
+
+    {% if user.is_authenticated %}
+        <p>Bem vindo ADMIN {{ user.username }} !!!</p>       
+    {% endif %}
+
+    {% if user.company %}
+        {% for company in companys %}
+            {{ company.name_company }}
+            <a class="btn btn-dark" href="company/page/?id={{ company.id }}">
+                Edite sua empresa
+            </a>
+        {% endfor %}
+    {% else %}
+        <a class="btn btn-dark" href="">
+            Cadastre Sua empresa
+        </a>
+    {% endif %}
+
+    <a href="{% url 'list-clients' %}">Clientes</a>
+
+    <a href="{% url 'logout' %}">Sair</a>
+
+{% endblock %}
+
+Projeto para controle de dados em sua Empresa
+O projeto trata-se da elaboração CRUD's utilizando Python, Django e Bootstrap com autenticação.É utilizado banco de dados PostgreSQL para persistências das informaçõs em base de dados.
+
+Comandos para levantar a aplicação Instalar as dependências pip install -r requirements.txt
+
+Criar as tabelas python manage.py migrate
+
+Levantar a aplicação python manage.py runserver
+
+CRUD: Create (Criação), Read (Consulta), Update (Atualização), Delete (Remoção)
+

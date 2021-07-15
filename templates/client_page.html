@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Cadastrar Clientes {% endblock %}
+
+{% block main %}
+
+    <form action="submit" method="POST">{% csrf_token %}
+
+        <input type="number" name="id_client" hidden value="{{ client.id }}">
+
+        <label for="">Nome do Cliente</label>
+        <input type="text" name="name" value="{{ client.name }}">
+
+        <button type="submit"> Cadastrar </button>
+
+    </form>
+
+{% endblock %}
