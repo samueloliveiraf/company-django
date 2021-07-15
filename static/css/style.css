@@ -17,8 +17,23 @@ form {
     background: #ffffff;
     padding: 40px;
     box-shadow: 0px 0px 11px 0px #e8e8e8;
-    border-radius: 20px;
+    border-radius: 8px;
     width: 430px;
+    margin-top: 40px;
+}
+
+.li-page-client {
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 11px 0px #e8e8e8;
+    border-radius: 8px;
+    width: 600px;
+    margin-top: 20px;
+    list-style-type: none;
+}
+
+.a-margin {
+    margin-left: 30px;
 }
 
 button:hover {
@@ -26,8 +41,28 @@ button:hover {
     color: white;
 }
 
+.btn-success {
+    margin-top: 12px;
+    margin-left: 6px;
+}
+
 a {
     text-decoration: none;
+}
+
+.client-btn {
+    margin-left: 130px;
+    margin-top: 20px;
+}
+
+input {
+    width: 355px;
+    margin-top: 12px;
+    background: #c7c7c7;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    height: 32px;
 }
 
 

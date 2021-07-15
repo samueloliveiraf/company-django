@@ -6,11 +6,11 @@
 
     {% for client in clients %}
     
-        <li>    
+        <li class="li-page-client">    
 
             {{ client.name }} 
 
-            <a href="client/list/page/?id={{ client.id }}">
+            <a class="a-margin" href="client/list/page/?id={{ client.id }}">
                 <button class="btn btn-primary">
                     Editar
                 </button>
@@ -27,7 +27,9 @@
     {% endfor %}
 
     <a href="page/">
-        Cadastrar Clientes
+        <button class="btn btn-success">
+            Cadastrar Clientes
+        </button>
     </a>
 
 

@@ -38,17 +38,35 @@ def delete_clients(request, id_client):
 def submit_client(request):
     if request.POST:
         name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone_number = request.POST.get('phone_number')
+        road = request.POST.get('road')
+        district = request.POST.get('district')
+        area_code = request.POST.get('area_code')
+        city = request.POST.get('city')
         user = request.user
         id_client = request.POST.get('id_client')
         if id_client:
             Client.objects.filter(
                 id=id_client).update(
-                name=name
+                name=name,
+                email=email,
+                phone_number=phone_number,
+                road=road,
+                district=district,
+                area_code=area_code,
+                city = city,
             )
         else:
             Client.objects.create(
                 name=name,
-                user=user
+                email=email,
+                phone_number=phone_number,
+                road=road,
+                district=district,
+                area_code=area_code,
+                city = city,
+                user=user,
             )
     return redirect('list-clients')
 
@@ -57,4 +75,3 @@ class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'register.html'
-

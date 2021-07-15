@@ -8,10 +8,22 @@
 
         <input type="number" name="id_client" hidden value="{{ client.id }}">
 
-        <label for="">Nome do Cliente</label>
+        <label for="">Nome Cliente</label>
         <input type="text" name="name" value="{{ client.name }}">
+        <label for="">E-mail Cliente</label>
+        <input type="email" name="email" value="{{ client.email }}">
+        <label for="">Número Cliente</label>
+        <input type="number" name="phone_number" value="{{ client.phone_number }}">
+        <label for="">Nome do Cliente</label>
+        <input type="text" name="road" value="{{ client.road }}">
+        <label for="">Nome do Cliente</label>
+        <input type="text" name="district" value="{{ client.district }}">
+        <label for="">Nome do Cliente</label>
+        <input type="text" name="area_code" value="{{ client.area_code }}">
+        <label for="">Nome do Cliente</label>
+        <input type="text" name="city" value="{{ client.city }}">
 
-        <button type="submit"> Cadastrar </button>
+        <button class="btn btn-dark client-btn" type="submit"> Cadastrar </button>
 
     </form>
 
