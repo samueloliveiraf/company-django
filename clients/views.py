@@ -44,6 +44,7 @@ def submit_client(request):
         district = request.POST.get('district')
         area_code = request.POST.get('area_code')
         city = request.POST.get('city')
+        cep = request.POST.get('cep')
         user = request.user
         id_client = request.POST.get('id_client')
         if id_client:
@@ -56,6 +57,7 @@ def submit_client(request):
                 district=district,
                 area_code=area_code,
                 city = city,
+                cep = cep,
             )
         else:
             Client.objects.create(
@@ -66,6 +68,7 @@ def submit_client(request):
                 district=district,
                 area_code=area_code,
                 city = city,
+                cep = cep,
                 user=user,
             )
     return redirect('list-clients')

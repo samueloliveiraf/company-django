@@ -6,6 +6,7 @@ class Client(models.Model):
     name =  models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = models.CharField(max_length=9)
+    cep = models.CharField(max_length=9)
     road = models.CharField(max_length=100)
     district = models.CharField(max_length=100)
     area_code = models.CharField(max_length=3)
@@ -17,6 +18,9 @@ class Client(models.Model):
     def __str__(self):
        return self.name
 
+    class Meta:
+        ordering = ['-order_date']
+        
 
     class Meta:
         db_table = 'clients'
