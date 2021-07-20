@@ -5,29 +5,46 @@
 {% block main %}
 
 <div class="li-page-client">
-    {% for client in clients %}
 
-    <li class="li-client">
+    <table class="table mt-1">
 
-        {{ client.name }}
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Contato</th>
+                <th style="padding-left: 32px;" scope="col">Funções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td> {{ client.name }} </td>
+                <td> {{ client.road }} </td>
+                <td> {{ client.district }} </td>
+                <td> {{ client.phone_number }} </td>
+                <td>
+                    <div class="row" style="margin-left: 4px;">
+                        <a class="style-logout" href="client/list/page/?id={{ client.id }}">
+                            Editar
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <a class="style-logout" style="margin-top: 4px;" 
+                            href="client/list/delete/{{ client.id }}/">
+                            Deletar
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
 
 
-        <a class="a-margin" href="client/list/page/?id={{ client.id }}">
-            <button class="btn btn-primary">
-                Editar
-            </button>
-        </a>
-
-        <a href="client/list/delete/{{ client.id }}/">
-            <button class="btn btn-danger">
-                Deletar
-            </button>
-        </a>
-
-
-    </li>
-
-    {% endfor %}
+    </table>
 
     <a href="page/">
         <button class="btn btn-dark">

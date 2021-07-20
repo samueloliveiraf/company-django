@@ -7,15 +7,6 @@
 <script>
     $(document).ready(function () {
 
-        function limpa_formulário_cep() {
-            // Limpa valores do formulário de cep.
-            $("#rua").val("");
-            $("#bairro").val("");
-            $("#cidade").val("");
-            $("#uf").val("");
-            $("#ddd").val("");
-        }
-
         //Quando o campo cep perde o foco.
         $("#cep").blur(function () {
 
@@ -58,48 +49,61 @@
                 } //end if.
                 else {
                     //cep é inválido.
-                    // limpa_formulário_cep();
                     alert("Formato de CEP inválido.");
                 }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                // limpa_formulário_cep();
-            }
+            } //end if
         });
     });
-    
+
 </script>
 
-<form action="submit" method="POST" method="GET">{% csrf_token %}
+<form class="form-client" action="submit" method="POST" method="GET">{% csrf_token %}
+
+    <h3>Cadastro de Clientes</h3>
 
     <input type="number" name="id_client" hidden value="{{ client.id }}">
 
-    <label for="">Nome Cliente</label>
-    <input type="text" name="name" value="{{ client.name }}">
+    <div class="form-group">
+        <label for="">Informe o nome</label>
+        <input class="form-control" type="text" name="name" value="{{ client.name }}" required>
+    </div>
+    <div class="form-group">
+        <label for="">E-mail</label>
+        <input class="form-control" type="email" name="email" value="{{ client.email }}" required>
+    </div>
 
-    <label for="">E-mail Cliente</label>
-    <input type="email" name="email" value="{{ client.email }}">
+    <div class="form-group">
+        <label for="">Número</label>
+        <input id="phone" class="form-control" size="9" maxlength="9" type="number" name="phone_number"
+            value="{{ client.phone_number }}">
+    </div>
 
-    <label for="">Número Cliente</label>
-    <input size="9" maxlength="9" type="number" name="phone_number" value="{{ client.phone_number }}">
+    <div class="form-group">
+        <label for="">Cep</label>
+        <input class="form-control" id="cep" name="cep" size="10" maxlength="9" value="{{ client.cep }}">
+    </div>
 
-    <label for="">Cep</label>
-    <input id="cep" name="cep" size="10" maxlength="9" value="{{ client.cep }}">
+    <div class="form-group">
+        <label for="">Código de área</label>
+        <input class="form-control" id="ddd" type="text" name="area_code" value="{{ client.area_code }}">
+    </div>
 
-    <label for="">Rua</label>
-    <input id="rua" type="text" name="road" value="{{ client.road }}">
+    <div class="form-group">
+        <label for="">Rua</label>
+        <input class="form-control" id="rua" type="text" name="road" value="{{ client.road }}">
+    </div>
 
-    <label for="">Bairro</label>
-    <input id="bairro" type="text" name="district" value="{{ client.district }}">
+    <div class="form-group">
+        <label for="">Bairro</label>
+        <input class="form-control" id="bairro" type="text" name="district" value="{{ client.district }}">
+    </div>
 
-    <label for="">Cidade</label>
-    <input id="cidade" type="text" name="city" value="{{ client.city }}">
+    <div class="form-group">
+        <label for="">Cidade</label>
+        <input class="form-control" id="cidade" type="text" name="city" value="{{ client.city }}">
+    </div>
 
-    <label for="">Código de área</label>
-    <input id="ddd" type="text" name="area_code" value="{{ client.area_code }}">
-
-    <button class="btn btn-dark client-btn" type="submit"> Cadastrar </button>
+    <button class="btn btn-dark" type="submit"> Cadastrar </button>
 
 </form>
 

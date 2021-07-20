@@ -10,27 +10,29 @@ body {
     font-weight: 550;
     line-height: 1.5;
     color: #212529;
-    background-color: #EAEDF3;
+    background: linear-gradient(rgba(0,0,0,.70),rgba(0,0,0,.70)100%), url('https://user-images.githubusercontent.com/44476076/126316707-9c875bab-c9d4-4633-ab5f-a1cc7e031bd0.jpg');
 }
 
 form {
-    background: #ffffff;
+    background: rgba(0,0,0,.30);
+    color: #c7c7c7;
     padding: 30px;
-    box-shadow: 0px 0px 11px 0px #e8e8e8;
     border-radius: 20px;
-    width: 430px;
+    width: 400px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 button {
     height: 40px;
     transition: 0.3s;
+    background: #363D5C;
 }
 
 input {
-    width: 370px;
+    width: 338px;
     margin-top: 12px;
-    background: #f7f5f5;
+    background: #e0e0e0;
     border-radius: 5px;
     border: none;
     padding-left: 10px;
